@@ -1,0 +1,451 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      #26345a 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      #183d35 0%,
+      transparent 35%
+    ),
+    #0b0f19;
+
+  color: white;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+#main {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(160px, 1fr));
+
+  grid-template-areas:
+    "increase decrease add5 reset"
+    "counter counter counter counter";
+
+  gap: 30px;
+
+  align-content: center;
+
+  justify-content: center;
+
+  max-width: 1300px;
+
+  margin: auto;
+}
+
+
+/* =====================================================
+   COMMON ACTION CARD
+===================================================== */
+
+#incr,
+#decr,
+#add5 {
+
+  width: 100%;
+  height: 190px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff4b4b,
+      #c60000
+    );
+
+  color: white;
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  font-family: "Trebuchet MS", sans-serif;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+
+/* =====================================================
+   GRID AREAS
+===================================================== */
+
+#incr {
+  grid-area: increase;
+}
+
+#decr {
+  grid-area: decrease;
+}
+
+#add5 {
+  grid-area: add5;
+}
+
+
+/* =====================================================
+   HOVER
+===================================================== */
+
+#incr:hover,
+#decr:hover,
+#add5:hover {
+
+  transform: translateY(-8px);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff6262,
+      #dc0000
+    );
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.45),
+    0 0 25px rgba(255, 40, 40, 0.25);
+}
+
+
+/* =====================================================
+   CLICK
+===================================================== */
+
+#incr:active,
+#decr:active,
+#add5:active {
+
+  transform: translateY(-2px) scale(0.97);
+
+  box-shadow:
+    0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =====================================================
+   RESET BUTTON
+===================================================== */
+
+button {
+
+  grid-area: reset;
+
+  width: 110px;
+  height: 110px;
+
+  justify-self: center;
+  align-self: center;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255, 255, 255, 0.8);
+
+  background:
+    linear-gradient(
+      145deg,
+      #4545ff,
+      #1010a8
+    );
+
+  color: white;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.3);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* RESET HOVER */
+
+button:hover {
+
+  transform: scale(1.12) rotate(5deg);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(60, 60, 255, 0.4);
+}
+
+
+/* RESET CLICK */
+
+button:active {
+
+  transform: scale(0.92);
+}
+
+
+/* =====================================================
+   COUNTER DISPLAY
+===================================================== */
+
+h1 {
+
+  grid-area: counter;
+
+  width: 100%;
+
+  height: 180px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 30px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      #00a800,
+      #006800
+    );
+
+  color: white;
+
+  font-size: clamp(55px, 7vw, 85px);
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  text-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.4);
+
+  box-shadow:
+    0 18px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* COUNTER HOVER */
+
+h1:hover {
+
+  transform: scale(1.015);
+
+  box-shadow:
+    0 25px 45px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(0, 255, 80, 0.15);
+}
+
+
+/* =====================================================
+   LAPTOP / SMALL DESKTOP
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  #main {
+
+    padding: 30px;
+
+    grid-template-columns:
+      repeat(4, minmax(130px, 1fr));
+
+    gap: 20px;
+  }
+
+  #incr,
+  #decr,
+  #add5 {
+
+    height: 160px;
+
+    font-size: 24px;
+
+    border-radius: 24px;
+  }
+
+  button {
+
+    width: 90px;
+    height: 90px;
+  }
+
+  h1 {
+
+    height: 150px;
+
+    font-size: 60px;
+  }
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 750px) {
+
+  #main {
+
+    min-height: 100vh;
+
+    padding: 25px;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    grid-template-areas:
+      "increase decrease"
+      "add5 reset"
+      "counter counter";
+
+    gap: 18px;
+  }
+
+  #incr,
+  #decr,
+  #add5 {
+
+    height: 140px;
+
+    font-size: 24px;
+  }
+
+  button {
+
+    width: 90px;
+    height: 90px;
+  }
+
+  h1 {
+
+    height: 140px;
+
+    font-size: 55px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+  #main {
+
+    padding: 20px;
+
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "increase"
+      "decrease"
+      "add5"
+      "reset"
+      "counter";
+
+    gap: 15px;
+  }
+
+  #incr,
+  #decr,
+  #add5 {
+
+    height: 90px;
+
+    border-radius: 20px;
+
+    font-size: 22px;
+  }
+
+  button {
+
+    width: 75px;
+    height: 75px;
+
+    font-size: 11px;
+  }
+
+  h1 {
+
+    height: 110px;
+
+    border-radius: 22px;
+
+    font-size: 50px;
+  }
+}
